@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "637685741996",
+    "firebase_url": "https://mmimages.firebaseio.com",
+    "project_id": "mmimages",
+    "storage_bucket": "mmimages.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637685741996:android:adfdd5dd7006df8bf0a209",
+        "android_client_info": {
+          "package_name": "com.zybooks.mmimages"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "637685741996-2ftj2t7hvpoin1egf99q1jrble1854o9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zybooks.mmimages",
+            "certificate_hash": "b42f0c072b4374ad00080cd41b90a1484c289df7"
+          }
+        },
+        {
+          "client_id": "637685741996-gfu4aq6l0ll9hd3e217b918stvfe5icm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_cYdSR2jhpiO12OxT3j0jrma1q2R3W6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "637685741996-gfu4aq6l0ll9hd3e217b918stvfe5icm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
