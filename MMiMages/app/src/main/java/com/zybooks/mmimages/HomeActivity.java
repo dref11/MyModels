@@ -1,6 +1,8 @@
 package com.zybooks.mmimages;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -14,8 +16,11 @@ import android.view.View;
 import android.content.*;
 import android.widget.*;
 
-import java.io.FileNotFoundException;
+import android.content.Intent;
+import android.widget.Button;
 import java.io.InputStream;
+import java.io.FileNotFoundException;
+
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -37,6 +42,10 @@ public class HomeActivity extends AppCompatActivity {
 
         CamButton = findViewById(R.id.CamButton);
         UploadButton = findViewById(R.id.UploadButton);
+
+        //Manually check for permission during runtime
+        checkForPermissions();
+
     }
     public void openCamera(View v){
         if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
@@ -51,12 +60,14 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void uploadPhoto(View v){
+
+
         if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
             requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, MY_EXTERNAL_PERMISSION_CODE);
         }
         else{
-            Intent photoIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            startActivityForResult(photoIntent,GALLERY_REQUEST);
+            Intent intent = new Intent(HomeActivity.this,ChoosePhotoActivity.class);
+            startActivity(intent);
         }
     }
 
@@ -102,4 +113,36 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    //Function to request permissions during runtime
+    void checkForPermissions(){
+
+        //Check for the current activity if permission is granted for external read
+        if(ContextCompat.checkSelfPermission(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+
+            //Permission not granted
+            if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.READ_EXTERNAL_STORAGE)){
+                //Show rationale if permission is not granted
+            } else{
+
+                //Request the permission during runtime
+                ActivityCompat.requestPermissions(this,
+                        new String []{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        GALLERY_REQUEST);
+            }
+
+        }else{
+            //Permission is already granted
+        }
+
+        //Check for the current activity if permisison is granted for external write
+        if(ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+
+            ActivityCompat.requestPermissions(this,
+                    new String []{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    GALLERY_REQUEST);
+
+        }
+    }
 }
