@@ -5,26 +5,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/flat_background"
     tools:context=".ChoosePhotoActivity">
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="35dp"/>
 
     <EditText
         android:id="@+id/editImgPath"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         android:hint="@string/path_hint"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp"/>
 
     <EditText
         android:id="@+id/editTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
         android:hint="@string/title_hint"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
 
     <Button
         android:id="@+id/buttonSelect"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="@string/select_button"
+        android:background="@drawable/btn_rounded"
+        android:textSize="23sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#FFFFFF"
         android:onClick="selectImage"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,15 +67,26 @@
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:paddingLeft="20dp"
+            android:textColor="#FFFFFF"
+
             android:text="@string/ip_address"/>
+
 
         <EditText
             android:id="@+id/editIp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:textAlignment="center"
             android:text="@string/default_ip"
             android:layout_weight="4"/>
     </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,27 +97,50 @@
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:textColor="#FFFFFF"
+            android:paddingLeft="20dp"
             android:text="@string/port"/>
 
         <EditText
             android:id="@+id/editPort"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:textColor="#FFFFFF"
+            android:textAlignment="center"
+            android:backgroundTint="#FFFFFF"
             android:layout_weight="4"
             android:text="@string/default_port"/>
     </LinearLayout>
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp"/>
+
     <Button
         android:id="@+id/buttonConnect"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/btn_rounded"
         android:text="@string/connect_button"
+        android:textSize="23sp"
+        android:layout_gravity="center_horizontal"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#FFFFFF"
         android:onClick="connectServer"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp"/>
+
 
     <TextView
         android:id="@+id/textResponse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:gravity="center_horizontal"
+
         android:text="@string/default_message"/>
 
     <TextView

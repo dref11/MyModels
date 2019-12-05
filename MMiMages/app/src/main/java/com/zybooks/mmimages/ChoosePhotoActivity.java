@@ -160,6 +160,9 @@ public class ChoosePhotoActivity extends AppCompatActivity implements GetText.As
                             //Start the rendering activity
                             startActivity(new Intent(ChoosePhotoActivity.this,ViewRender.class));
 
+                            //Close activity
+                            finish();
+
                         }catch(Exception e){
                             e.printStackTrace();
                         }

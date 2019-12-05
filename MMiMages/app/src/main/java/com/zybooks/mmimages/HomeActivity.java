@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private static final int CAMERA_REQUEST = 1888;
     private static final int GALLERY_REQUEST = 1889;
-    Button CamButton, UploadButton;
+    ImageButton CamButton, UploadButton;
     private static final int MY_CAMERA_PERMISSION_CODE = 100;
     private static final int MY_EXTERNAL_PERMISSION_CODE = 101;
 
