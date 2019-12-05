@@ -16,7 +16,8 @@
         android:label="MyModels"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChoosePhotoActivity"></activity>
+        <activity android:name=".ViewRender"></activity>
+        <activity android:name=".ChoosePhotoActivity" />
         <activity android:name=".MyModelsActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity" />

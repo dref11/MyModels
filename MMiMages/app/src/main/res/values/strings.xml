@@ -98,16 +98,11 @@
     <string name="title_hint">Image Title Here</string>
     <string name="select_button">Select Image</string>
     <string name="connect_button">Connect to Server</string>
-    <string name="ip_address">IPv4 Addresse</string>
+    <string name="ip_address">IPv4 Address</string>
     <string name="port">Port Number</string>
     <string name="default_port">5000</string>
     <string name="default_ip">10.0.2.2</string>
     <string name="default_message">Message from server. . .</string>
-
-
-
-
-
 
 
 </resources>

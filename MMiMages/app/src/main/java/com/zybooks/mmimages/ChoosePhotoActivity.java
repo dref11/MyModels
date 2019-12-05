@@ -24,7 +24,10 @@ import android.widget.Toast;
 import android.widget.Button;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -44,6 +47,15 @@ public class ChoosePhotoActivity extends AppCompatActivity implements GetText.As
 
     @Override
     public void processFinish(String textOut){
+        try{
+            String fileName = "test_obj.txt";
+            File file = new File("/mnt/sdcard/"+fileName);
+            PrintStream out = new PrintStream(new FileOutputStream(file));
+
+            out.print(textOut);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -131,7 +143,6 @@ public class ChoosePhotoActivity extends AppCompatActivity implements GetText.As
                         TextView textResponse = findViewById(R.id.textResponse);
                         try{
 
-
                             GetText gT = new GetText(new GetText.AsyncResponse() {
                                 @Override
                                 public void processFinish(String textOut) {
@@ -143,7 +154,11 @@ public class ChoosePhotoActivity extends AppCompatActivity implements GetText.As
                             gT.delegate = ChoosePhotoActivity.this;
                             gT.execute("http://10.0.2.2:5000/txtfile");
 
+                            //Update textView once download has finished
                             textResponse.setText("Finished download");
+
+                            //Start the rendering activity
+                            startActivity(new Intent(ChoosePhotoActivity.this,ViewRender.class));
 
                         }catch(Exception e){
                             e.printStackTrace();
@@ -175,9 +190,7 @@ public class ChoosePhotoActivity extends AppCompatActivity implements GetText.As
                 Uri uri = data.getData();
                 selectedImagePath = getPath(getApplicationContext(), uri);
                 editImgPath.setText(selectedImagePath);
-                Toast.makeText(this,"Img:"+selectedImagePath,Toast.LENGTH_LONG).show();
-
-
+                //Toast.makeText(this,"Img:"+selectedImagePath,Toast.LENGTH_LONG).show();
             }catch(Exception e){
                 e.printStackTrace();
             }

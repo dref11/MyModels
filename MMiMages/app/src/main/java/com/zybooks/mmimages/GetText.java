@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
-public class GetText  extends AsyncTask<String, Void, Void>{
+public class GetText  extends AsyncTask<String, Void, String>{
 
     //Interface to return results from background task
     public interface AsyncResponse{
@@ -28,11 +28,8 @@ public class GetText  extends AsyncTask<String, Void, Void>{
     }
 
     @Override
-    protected Void doInBackground(String... string){
+    protected String doInBackground(String... string){
         try {
-
-            String fileName = "test_obj.txt";
-            PrintStream out = new PrintStream(new FileOutputStream("/mnt/sdcard/"+fileName));
 
             URL url = new URL(string[0]);
             BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
@@ -42,7 +39,8 @@ public class GetText  extends AsyncTask<String, Void, Void>{
                 sb.append(str);
                 sb.append("\n");
             }
-            out.print(new String(sb));
+
+            return new String(sb);
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -51,5 +49,11 @@ public class GetText  extends AsyncTask<String, Void, Void>{
         }
 
         return null;
+    }
+
+    @Override
+    protected void onPostExecute(String textOut){
+        super.onPostExecute(textOut);
+        delegate.processFinish(textOut);
     }
 }
