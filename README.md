@@ -14,23 +14,24 @@ Inside of terminal run the following command
 ```shell
 git clone https://github.com/dref11/MyModels.git
 ```
-Once you have cloned the repository, the folder called FlaskServer will be used to setup the Docker container. Move this folder outside of the repository. From your terminal window cd into this folder. Make sure that you have Docker desktop running on your machine and then execute the following command
+Once you have cloned the repository, the folder called FlaskServer will be used to setup the Docker container. Make sure that you have Docker desktop running on your machine and then execute the following command
 ```shell
+cd FlaskServer
 docker build -t mymodels:latest .
 ```
-This make take a few minutes depending on your machine and internet connection. Once finished this will create an image to run Pixel2Mesh and a success message will be displayed. You can also verify this by using the following command
+This may take a few minutes depending on your machine and internet connection. Once finished this will create an image to run Pixel2Mesh and a success message will be displayed. You can also verify this by using the following command
 ```shell
 docker images --all
 ```
 and you should see the newly created Docker image listed. Next, we need to run an instance of this image. To do so run the following command
 ```shell
-docker run -d -p 5000:5000 mymodel:1.0
+docker run -d -p 5000:5000 mymodels:1.0
 ```
 This will create a Docker container in detached mode and route the exposed port 5000 of the container to port 5000 of the local machine. To view all containers running use the following command
 ```shell
 docker ps --all
 ```
-If successful the Flask server should be live and can be verified by
+If successful, the Flask server should be live and can be verified by
 ```shell
 curl http://0.0.0.0:5000/connect
 ```
@@ -42,7 +43,7 @@ This will put the container into interactive mode and let us modify files inside
 ```shell
 cd p2m
 ```
-and then open layers.py. We will have to modify the input shapes of x2 in  line 29 and y2 in line 31 to the following
+and then open layers.py. We will have to modify the shapes of x2 in  line 29 and y2 in line 31 to the following
 ```python
 x2 = tf.minimum(tf.ceil(x), tf.cast(tf.shape(img_feat)[0], tf.float32) - 1)
 y2 = tf.minimum(tf.ceil(y), tf.cast(tf.shape(img_feat)[1], tf.float32) - 1)
