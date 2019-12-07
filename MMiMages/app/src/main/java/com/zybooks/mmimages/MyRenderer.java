@@ -2,7 +2,6 @@ package com.zybooks.mmimages;
 
 import android.view.MotionEvent;
 
-import org.rajawali3d.animation.Animation3D;
 import org.rajawali3d.lights.DirectionalLight;
 import org.rajawali3d.loader.LoaderOBJ;
 import org.rajawali3d.materials.Material;

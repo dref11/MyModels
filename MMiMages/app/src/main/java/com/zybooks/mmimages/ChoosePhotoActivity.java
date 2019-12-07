@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.ContentUris;
 import android.content.Context;

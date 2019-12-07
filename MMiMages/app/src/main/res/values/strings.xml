@@ -104,5 +104,7 @@
     <string name="default_ip">10.0.2.2</string>
     <string name="default_message">Message from server. . .</string>
 
+    <string name="temp_title">test</string>
+
 
 </resources>

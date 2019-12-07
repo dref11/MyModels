@@ -36,6 +36,7 @@
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
         android:backgroundTint="#FFFFFF"
+        android:text="@string/temp_title"
         android:hint="@string/title_hint"/>
 
     <Space
