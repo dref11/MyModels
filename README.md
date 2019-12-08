@@ -25,7 +25,7 @@ docker images --all
 ```
 and you should see the newly created Docker image listed. Next, we need to run an instance of this image. To do so run the following command
 ```shell
-docker run -d -p 5000:5000 mymodels:1.0
+docker run -d -p 5000:5000 mymodels:latest
 ```
 This will create a Docker container in detached mode and route the exposed port 5000 of the container to port 5000 of the local machine. To view all containers running use the following command
 ```shell
