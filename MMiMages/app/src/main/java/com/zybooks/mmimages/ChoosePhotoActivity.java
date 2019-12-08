@@ -53,7 +53,6 @@ public class ChoosePhotoActivity extends AppCompatActivity implements GetText.As
 
             out.print(textOut);
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -163,7 +162,6 @@ public class ChoosePhotoActivity extends AppCompatActivity implements GetText.As
                             finish();
 
                         }catch(Exception e){
-                            e.printStackTrace();
                         }
                     }
                 });
@@ -192,9 +190,7 @@ public class ChoosePhotoActivity extends AppCompatActivity implements GetText.As
                 Uri uri = data.getData();
                 selectedImagePath = getPath(getApplicationContext(), uri);
                 editImgPath.setText(selectedImagePath);
-                //Toast.makeText(this,"Img:"+selectedImagePath,Toast.LENGTH_LONG).show();
             }catch(Exception e){
-                e.printStackTrace();
             }
         }
     }

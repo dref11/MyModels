@@ -49,7 +49,6 @@ public class ModelsDB extends SQLiteOpenHelper{
             db.execSQL("CREATE TABLE " + ModelTable.TABLE + " (" + ModelTable.COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
                     ModelTable.COL_TITLE + " STRING, " + ModelTable.COL_IMAGE + " BLOB)");
         } catch(SQLiteException e){
-            e.printStackTrace();
         }
     }
 
@@ -63,9 +62,7 @@ public class ModelsDB extends SQLiteOpenHelper{
                 db.execSQL("DROP TABLE IF EXISTS "+ ModelTable.TABLE);
                 onCreate(db);
                 VERSION = newVersion;
-                //Toast.makeText(ctx, "TABLE "+ ImageTable.TABLE + " "+ oldVersion + " IS DROPPED", Toast.LENGTH_LONG).show();
             } catch(SQLiteException e){
-                e.printStackTrace();
             }
             db.close();
         }
@@ -116,7 +113,6 @@ public class ModelsDB extends SQLiteOpenHelper{
                 }
             }
         }catch (SQLiteException e){
-            e.printStackTrace();
         }
         db.close();
     }
@@ -127,7 +123,6 @@ public class ModelsDB extends SQLiteOpenHelper{
         try {
             db.delete(ModelTable.TABLE, ModelTable.COL_ID + " = ? AND " + ModelTable.COL_TITLE + " = ?", new String[]{id, title});
         }catch(SQLiteException e){
-            e.printStackTrace();
         }
         db.close();
     }

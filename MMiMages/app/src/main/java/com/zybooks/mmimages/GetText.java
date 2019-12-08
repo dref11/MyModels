@@ -38,9 +38,7 @@ public class GetText  extends AsyncTask<String, Void, String>{
             return new String(sb);
 
         } catch (MalformedURLException e) {
-            e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
         }
 
         return null;

@@ -50,7 +50,6 @@ public class MyRenderer extends RajawaliRenderer{
             object = objParser.getParsedObject();
 
         }catch(Exception e){
-            e.printStackTrace();
         }
 
         //Add material settings to the render
@@ -66,7 +65,6 @@ public class MyRenderer extends RajawaliRenderer{
         try{
             material.addTexture(objTexture);
         }catch (Exception e){
-            e.printStackTrace();
         }
 
         //Set camera

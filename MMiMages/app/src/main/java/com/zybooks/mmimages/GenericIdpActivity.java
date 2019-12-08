@@ -63,16 +63,13 @@ public class GenericIdpActivity extends BaseActivity implements
             pending.addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                 @Override
                 public void onSuccess(AuthResult authResult) {
-                    Log.d(TAG, "checkPending:onSuccess:" + authResult);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Log.w(TAG, "checkPending:onFailure", e);
                 }
             });
         } else {
-            Log.d(TAG, "pending: null");
         }
     }
 
@@ -88,7 +85,6 @@ public class GenericIdpActivity extends BaseActivity implements
                         new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
-                                Log.d(TAG, "activitySignIn:onSuccess:" + authResult.getUser());
                                 updateUI(authResult.getUser());
                             }
                         })
@@ -96,7 +92,6 @@ public class GenericIdpActivity extends BaseActivity implements
                         new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Log.w(TAG, "activitySignIn:onFailure", e);
                             }
                         });
     }

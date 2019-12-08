@@ -108,7 +108,6 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(HomeActivity.this, MyModelsActivity.class));
 
             } catch (FileNotFoundException e) {
-                e.printStackTrace();
             }
         }
     }
